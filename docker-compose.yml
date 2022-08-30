@@ -26,6 +26,10 @@ services:
       - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
       - "8088:80"
+    depends_on:
+      - php
+    links:
+      - php
 
   php:
     build: phpdocker/php-fpm
